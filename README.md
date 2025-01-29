@@ -22,3 +22,60 @@ Haar Cascade Classifier XML File:
 - Uses OpenCV’s pre-trained haarcascade_frontalface_default.xml model.
 - This dataset consists of pre-trained classifiers for detecting human faces.
 - Link to XML file: [Haarcascade GitHub](https://github.com/opencv/opencv/blob/master/data/haarcascades/haarcascade_frontalface_default.xml)
+
+# Code
+```python
+import cv2
+
+face_cap = cv2.CascadeClassifier("C:/Users/aakas/Downloads/haarcascade_frontalface_default.xml")
+video_cap = cv2.VideoCapture(0)
+
+while True:
+    ret, video_data = video_cap.read()
+    if not ret:
+        break  # Exit loop if the video frame is not captured properly
+
+    color = cv2.cvtColor(video_data, cv2.COLOR_BGR2GRAY)
+    faces = face_cap.detectMultiScale(
+        color,
+        scaleFactor=1.1,
+        minNeighbors=5,
+        minSize=(30, 30),
+        flags=cv2.CASCADE_SCALE_IMAGE
+    )
+
+    for (a, b, w, h) in faces:
+        cv2.rectangle(video_data, (a, b), (a + w, b + h), (0, 255, 0), 2)  # Fixed
+
+    cv2.imshow("Video Live", video_data)
+
+    if cv2.waitKey(10) == ord("x"):
+        break
+
+video_cap.release()
+cv2.destroyAllWindows()  # Ensure all windows are closed
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

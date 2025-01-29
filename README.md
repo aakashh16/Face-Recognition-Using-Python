@@ -56,10 +56,23 @@ video_cap.release()
 cv2.destroyAllWindows()  # Ensure all windows are closed
 ```
 
+# Findings
+- The Haar cascade classifier successfully detects faces in real-time with good accuracy.
+- Performance is fast and efficient but sometimes detects false positives in certain lighting conditions.
+- The model works well for frontal face detection but struggles with side profiles.
+- Performance can be improved using deep learning models like FaceNet or OpenCV's DNN module.
 
 
+# Conclusion
+This project demonstrates a real-time face detection system using OpenCV and Haar cascades. While Haar cascades provide a quick and lightweight solution for face detection, they lack robustness in detecting faces at different angles and lighting conditions. The next step is to implement a deep learning-based recognition system to enhance accuracy and reliability.
 
 
+# Future Work
+- Face Recognition using Deep Learning: Implement models like FaceNet, Dlib, or OpenCV LBPH for face recognition.
+- Improve Accuracy with Pretrained CNNs: Use models such as VGG-Face, ResNet, or EfficientNet.
+- Train a Custom Dataset: Collect and train a dataset for face authentication or attendance systems.
+- Web & Mobile Integration: Deploy the model as a web app using Flask or FastAPI and integrate with React Native for mobile.
+- Enhance Multi-Face Detection: Optimize the detection pipeline to handle multiple faces in a single frame.
 
 
 
